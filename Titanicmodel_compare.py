@@ -36,3 +36,13 @@ log_reg = LogisticRegression(C=1.0, max_iter=1000)
 log_reg.fit(X_train_scaled, y_train)
 y_pred_log = log_reg.predict(X_test_scaled)
 
+def print_metrics(name, y_true, y_pred):
+    print(f"--- {name} ---")
+    print(f"Accuracy:  {accuracy_score(y_true, y_pred):.4f}")
+    print(f"Precision: {precision_score(y_true, y_pred):.4f}")
+    print(f"Recall:    {recall_score(y_true, y_pred):.4f}")
+    print(f"F1-Score:  {f1_score(y_true, y_pred):.4f}\n")
+
+print_metrics("KNN (K=5)", y_test, y_pred_knn)
+print_metrics("Logistic Regression", y_test, y_pred_log)
+
