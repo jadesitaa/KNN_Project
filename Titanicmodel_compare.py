@@ -30,3 +30,9 @@ X_test_scaled = scaler.transform(X_test)
 knn = KNeighborsClassifier(n_neighbors=5)
 knn.fit(X_train_scaled, y_train)
 y_pred_knn = knn.predict(X_test_scaled)
+
+#Build Logistic Regression Model (C=1.0)
+log_reg = LogisticRegression(C=1.0, max_iter=1000)
+log_reg.fit(X_train_scaled, y_train)
+y_pred_log = log_reg.predict(X_test_scaled)
+
